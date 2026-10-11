@@ -1,0 +1,12 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+pydantic-settings>=2.2
+numpy
+xarray
+netCDF4
+scipy
+httpx
+torch                 # install the CUDA build you used for training if you want GPU inference
+copernicusmarine>=2.0 # SST, SSS, SSH
+earthaccess>=0.9      # OSCAR
+pytest                # tests only

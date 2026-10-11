@@ -1,0 +1,14 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+.env
+.env.*
+
+__pycache__/
+build/
+.venv
+cache/
+
+.pytest_cache/
+.cache/
