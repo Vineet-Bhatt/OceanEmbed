@@ -1,19 +1,12 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter, useLocation } from 'react-router-dom';
 import DashboardPage from './Dashboard.jsx';
 
-export default function App() {
-  const isDashboard = /^\/(today|custom|about-us|about-project)(\/|$)/.test(window.location.pathname);
-
+function LandingPage() {
   useEffect(() => {
-    if (isDashboard) {
-      import('./dashboard.css');
-    } else {
-      import('./App.css');
-      import('./App.js');
-    }
-  }, [isDashboard]);
-
-  if (isDashboard) return <DashboardPage />;
+    import('./App.css');
+    import('./App.js');
+  }, []);
 
   return (
     <div className="shell">
@@ -79,5 +72,28 @@ export default function App() {
       </dialog>
       */}
     </div>
+  );
+}
+
+function AppRoutes() {
+  const location = useLocation();
+  const isDashboard = /^\/(today|custom|about-us|about-project)(\/|$)/.test(location.pathname);
+
+  useEffect(() => {
+    if (isDashboard) {
+      import('./dashboard.css');
+    }
+  }, [isDashboard]);
+
+  if (isDashboard) return <DashboardPage />;
+
+  return <LandingPage />;
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { BrowserRouter, NavLink, Navigate, Route, Routes } from 'react-router-dom';
+import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
 
 const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:8000').replace(/\/$/, '');
 const today = new Date().toISOString().slice(0, 10);
@@ -274,5 +274,5 @@ function Dashboard() {
 }
 
 export default function DashboardPage() {
-  return <BrowserRouter><Dashboard /></BrowserRouter>;
+  return <Dashboard />;
 }
